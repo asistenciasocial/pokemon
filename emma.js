@@ -1,18 +1,18 @@
 async function buscar() {
     let result = document.querySelector("#Carta");
     let input = document.querySelector("#nPokemon").value;
-    result.innerHTML = ""; 
+    result.innerHTML = "";
 
     try {
         let pokemonNumber = parseInt(input);
-        let response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonNumber}`);
+        let response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonNumber}/`);
         if (!response.ok) {
             throw new Error('No se pudo obtener el Pokémon');
         }
         let data = await response.json();
         let pokemonName = data.name;
-        let pokemonImage = data.sprites.other.home.front_default;
-
+        let pokemonImage = data.sprites.front_default; 
+        print(data)
         let html = `<div class="pokemon">
                         <h1>${pokemonName}</h1>
                         <img src="${pokemonImage}" alt="${pokemonName}" />
