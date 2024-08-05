@@ -12,7 +12,6 @@ async function buscar() {
         let data = await response.json();
         let pokemonName = data.name;
         let pokemonImage = data.sprites.front_default; 
-        print(data)
         let html = `<div class="pokemon">
                         <h1>${pokemonName}</h1>
                         <img src="${pokemonImage}" alt="${pokemonName}" />
